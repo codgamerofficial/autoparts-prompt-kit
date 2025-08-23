@@ -7,6 +7,7 @@ import TrustBadge from "@/components/TrustBadge";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Star, ArrowRight, Search, Wrench, Shield } from "lucide-react";
+import { useFeaturedProducts, useCategories } from "@/hooks/useProducts";
 import heroBg from "@/assets/hero-bg.jpg";
 import brakePad from "@/assets/brake-pad.jpg";
 import airFilter from "@/assets/air-filter.jpg";
@@ -14,66 +15,32 @@ import oilFilter from "@/assets/oil-filter.jpg";
 import sparkPlugs from "@/assets/spark-plugs.jpg";
 
 const Index = () => {
-  const featuredProducts = [
-    {
-      id: "1",
-      name: "Premium Ceramic Brake Pads",
-      brand: "AutoPro",
-      price: 89.99,
-      originalPrice: 119.99,
-      rating: 5,
-      reviewCount: 156,
-      image: brakePad,
-      inStock: true,
-      fitment: "2018-2023 Honda Civic",
-      partNumber: "BP-HC-2018"
-    },
-    {
-      id: "2", 
-      name: "High-Flow Air Filter",
-      brand: "K&N",
-      price: 45.99,
-      rating: 4,
-      reviewCount: 89,
-      image: airFilter,
-      inStock: true,
-      fitment: "2015-2022 Ford F-150",
-      partNumber: "AF-FF-2015"
-    },
-    {
-      id: "3",
-      name: "Premium Oil Filter",
-      brand: "Mobil 1",
-      price: 12.99,
-      rating: 5,
-      reviewCount: 234,
-      image: oilFilter,
-      inStock: true,
-      fitment: "2019-2024 Toyota Camry",
-      partNumber: "OF-TC-2019"
-    },
-    {
-      id: "4",
-      name: "Iridium Spark Plugs (Set of 4)",
-      brand: "NGK",
-      price: 32.99,
-      rating: 5,
-      reviewCount: 178,
-      image: sparkPlugs,
-      inStock: false,
-      fitment: "2016-2021 Nissan Altima",
-      partNumber: "SP-NA-2016"
-    }
-  ];
+  const { data: featuredProducts = [], isLoading: productsLoading } = useFeaturedProducts();
+  const { data: categories = [], isLoading: categoriesLoading } = useCategories();
 
-  const categories = [
-    { name: "Engine Parts", description: "Pistons, gaskets, filters", image: "/api/placeholder/300/200", productCount: 1250 },
-    { name: "Brake System", description: "Pads, rotors, calipers", image: "/api/placeholder/300/200", productCount: 890 },
-    { name: "Suspension", description: "Shocks, struts, springs", image: "/api/placeholder/300/200", productCount: 650 },
-    { name: "Exhaust System", description: "Mufflers, pipes, catalytic", image: "/api/placeholder/300/200", productCount: 420 },
-    { name: "Electrical", description: "Batteries, alternators, starters", image: "/api/placeholder/300/200", productCount: 780 },
-    { name: "Transmission", description: "Fluid, filters, parts", image: "/api/placeholder/300/200", productCount: 340 }
-  ];
+  // Fallback data for image mapping
+  const getProductImage = (imageUrl?: string) => {
+    if (imageUrl?.includes('brake-pad')) return brakePad;
+    if (imageUrl?.includes('air-filter')) return airFilter;
+    if (imageUrl?.includes('oil-filter')) return oilFilter;
+    if (imageUrl?.includes('spark-plugs')) return sparkPlugs;
+    return brakePad; // default fallback
+  };
+
+  // Transform database products to component format
+  const transformedProducts = featuredProducts.map(product => ({
+    id: product.id,
+    name: product.name,
+    brand: product.brand,
+    price: product.price,
+    originalPrice: product.original_price,
+    rating: product.rating,
+    reviewCount: product.review_count,
+    image: getProductImage(product.image_url),
+    inStock: product.in_stock,
+    fitment: product.fitment || "Universal",
+    partNumber: product.part_number || "N/A"
+  }));
 
   const brands = ["Toyota", "Honda", "Ford", "Chevrolet", "BMW", "Mercedes", "Audi", "Nissan"];
 
@@ -139,9 +106,20 @@ const Index = () => {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-            {featuredProducts.map((product) => (
-              <ProductCard key={product.id} product={product} />
-            ))}
+            {productsLoading ? (
+              // Loading skeleton
+              Array.from({ length: 4 }).map((_, i) => (
+                <div key={i} className="bg-card rounded-xl border border-border p-4 animate-pulse">
+                  <div className="aspect-square bg-accent rounded-lg mb-4"></div>
+                  <div className="h-4 bg-accent rounded w-3/4 mb-2"></div>
+                  <div className="h-3 bg-accent rounded w-1/2"></div>
+                </div>
+              ))
+            ) : (
+              transformedProducts.map((product) => (
+                <ProductCard key={product.id} product={product} />
+              ))
+            )}
           </div>
           
           <div className="text-center">
@@ -162,9 +140,28 @@ const Index = () => {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {categories.map((category, index) => (
-              <CategoryCard key={index} category={category} />
-            ))}
+            {categoriesLoading ? (
+              // Loading skeleton
+              Array.from({ length: 6 }).map((_, i) => (
+                <div key={i} className="bg-card rounded-xl border border-border p-6 animate-pulse">
+                  <div className="aspect-video bg-accent rounded-lg mb-4"></div>
+                  <div className="h-4 bg-accent rounded w-3/4 mb-2"></div>
+                  <div className="h-3 bg-accent rounded w-1/2"></div>
+                </div>
+              ))
+            ) : (
+              categories.map((category, index) => (
+                <CategoryCard 
+                  key={index} 
+                  category={{
+                    name: category.name,
+                    description: category.description || "",
+                    image: category.image_url || "/api/placeholder/300/200",
+                    productCount: category.product_count
+                  }} 
+                />
+              ))
+            )}
           </div>
         </div>
       </section>

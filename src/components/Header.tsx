@@ -1,6 +1,9 @@
 import { Search, ShoppingCart, User, Heart, Menu, LogOut } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { MainNavigationMenu } from "@/components/NavigationMenu";
+import { MobileMenu } from "@/components/MobileMenu";
+import { ModeToggle } from "@/components/ui/mode-toggle";
 import { useAuth } from "@/hooks/useAuth";
 import { Link } from "react-router-dom";
 
@@ -38,6 +41,7 @@ const Header = () => {
           
           {/* Action Icons */}
           <div className="flex items-center space-x-4">
+            <ModeToggle />
             {user ? (
               <>
                 <span className="text-sm text-muted-foreground hidden sm:block">
@@ -83,21 +87,14 @@ const Header = () => {
                 </Link>
               </>
             )}
-            <Button variant="ghost" size="icon" className="md:hidden">
-              <Menu className="h-5 w-5" />
-            </Button>
+            <MobileMenu />
           </div>
         </div>
         
         {/* Navigation */}
-        <nav className="hidden md:flex items-center space-x-8 py-4 border-t border-border">
-          <a href="#" className="text-primary hover:text-electric transition-smooth font-medium">Shop</a>
-          <a href="#" className="text-muted-foreground hover:text-electric transition-smooth">Brands</a>
-          <a href="#" className="text-muted-foreground hover:text-electric transition-smooth">Categories</a>
-          <a href="#" className="text-muted-foreground hover:text-electric transition-smooth">Deals</a>
-          <a href="#" className="text-muted-foreground hover:text-electric transition-smooth">About</a>
-          <a href="#" className="text-muted-foreground hover:text-electric transition-smooth">Support</a>
-        </nav>
+        <div className="py-4 border-t border-border">
+          <MainNavigationMenu />
+        </div>
       </div>
     </header>
   );

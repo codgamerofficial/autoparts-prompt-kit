@@ -52,16 +52,25 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				sidebar: {
-					DEFAULT: 'hsl(var(--sidebar-background))',
-					foreground: 'hsl(var(--sidebar-foreground))',
-					primary: 'hsl(var(--sidebar-primary))',
-					'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
-					accent: 'hsl(var(--sidebar-accent))',
-					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
-					border: 'hsl(var(--sidebar-border))',
-					ring: 'hsl(var(--sidebar-ring))'
-				}
+				// AutoParts Brand Colors
+				electric: {
+					DEFAULT: 'hsl(var(--electric))',
+					foreground: 'hsl(var(--electric-foreground))'
+				},
+				success: {
+					DEFAULT: 'hsl(var(--success))',
+					foreground: 'hsl(var(--success-foreground))'
+				},
+				warning: {
+					DEFAULT: 'hsl(var(--warning))',
+					foreground: 'hsl(var(--warning-foreground))'
+				},
+				// Brand Palette
+				'brand-black': '#0B0B0C',
+				'brand-dark': '#1F1F23',
+				'brand-mid': '#2B2B31',
+				'brand-light': '#E5E7EB',
+				'brand-blue': '#2563EB'
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

@@ -57,6 +57,10 @@ export default {
 					DEFAULT: 'hsl(var(--electric))',
 					foreground: 'hsl(var(--electric-foreground))'
 				},
+				'neon-orange': {
+					DEFAULT: 'hsl(var(--neon-orange))',
+					foreground: 'hsl(var(--neon-orange-foreground))'
+				},
 				success: {
 					DEFAULT: 'hsl(var(--success))',
 					foreground: 'hsl(var(--success-foreground))'
@@ -66,11 +70,11 @@ export default {
 					foreground: 'hsl(var(--warning-foreground))'
 				},
 				// Brand Palette
-				'brand-black': '#0B0B0C',
-				'brand-dark': '#1F1F23',
-				'brand-mid': '#2B2B31',
-				'brand-light': '#E5E7EB',
-				'brand-blue': '#2563EB'
+				'brand-black': '#000000',
+				'brand-dark': '#333333',
+				'brand-light': '#F7F7F7',
+				'brand-blue': '#007BFF',
+				'brand-orange': '#FF5722'
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -113,6 +117,24 @@ export default {
 				'slide-in-from-right': {
 					'0%': { transform: 'translateX(10px)', opacity: '0' },
 					'100%': { transform: 'translateX(0)', opacity: '1' }
+				},
+				'bounce-in': {
+					'0%': { transform: 'scale(0.3)', opacity: '0' },
+					'50%': { transform: 'scale(1.05)', opacity: '0.8' },
+					'70%': { transform: 'scale(0.9)', opacity: '0.9' },
+					'100%': { transform: 'scale(1)', opacity: '1' }
+				},
+				'zoom-in': {
+					'0%': { transform: 'scale(0.95)', opacity: '0' },
+					'100%': { transform: 'scale(1)', opacity: '1' }
+				},
+				'slide-up': {
+					'0%': { transform: 'translateY(100%)', opacity: '0' },
+					'100%': { transform: 'translateY(0)', opacity: '1' }
+				},
+				'float': {
+					'0%, 100%': { transform: 'translateY(0px)' },
+					'50%': { transform: 'translateY(-10px)' }
 				}
 			},
 			animation: {
@@ -122,7 +144,11 @@ export default {
 				'slide-in-from-top': 'slide-in-from-top 0.2s ease-out',
 				'slide-in-from-bottom': 'slide-in-from-bottom 0.2s ease-out',
 				'slide-in-from-left': 'slide-in-from-left 0.2s ease-out',
-				'slide-in-from-right': 'slide-in-from-right 0.2s ease-out'
+				'slide-in-from-right': 'slide-in-from-right 0.2s ease-out',
+				'bounce-in': 'bounce-in 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55)',
+				'zoom-in': 'zoom-in 0.3s ease-out',
+				'slide-up': 'slide-up 0.4s ease-out',
+				'float': 'float 3s ease-in-out infinite'
 			}
 		}
 	},

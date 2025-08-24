@@ -49,7 +49,7 @@ const Index = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative py-20 overflow-hidden">
+      <section className="relative py-20 overflow-hidden hero-fade-in">
         <div 
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url(${heroBg})` }}
@@ -70,7 +70,9 @@ const Index = () => {
               </p>
             </div>
             
-            <VehicleSelector />
+            <div className="search-slide-up">
+              <VehicleSelector />
+            </div>
             
             <div className="flex items-center justify-center space-x-6 text-sm text-white/80">
               <div className="flex items-center space-x-2">
@@ -109,7 +111,7 @@ const Index = () => {
             {productsLoading ? (
               // Loading skeleton
               Array.from({ length: 4 }).map((_, i) => (
-                <div key={i} className="bg-card rounded-xl border border-border p-4 animate-pulse">
+                <div key={i} className="bg-card rounded-xl border border-border p-4 animate-pulse stagger-fade-in">
                   <div className="aspect-square bg-accent rounded-lg mb-4"></div>
                   <div className="h-4 bg-accent rounded w-3/4 mb-2"></div>
                   <div className="h-3 bg-accent rounded w-1/2"></div>
@@ -117,7 +119,9 @@ const Index = () => {
               ))
             ) : (
               transformedProducts.map((product) => (
-                <ProductCard key={product.id} product={product} />
+                <div key={product.id} className="stagger-fade-in">
+                  <ProductCard product={product} />
+                </div>
               ))
             )}
           </div>
@@ -143,7 +147,7 @@ const Index = () => {
             {categoriesLoading ? (
               // Loading skeleton
               Array.from({ length: 6 }).map((_, i) => (
-                <div key={i} className="bg-card rounded-xl border border-border p-6 animate-pulse">
+                <div key={i} className="bg-card rounded-xl border border-border p-6 animate-pulse stagger-fade-in">
                   <div className="aspect-video bg-accent rounded-lg mb-4"></div>
                   <div className="h-4 bg-accent rounded w-3/4 mb-2"></div>
                   <div className="h-3 bg-accent rounded w-1/2"></div>
@@ -151,7 +155,8 @@ const Index = () => {
               ))
             ) : (
               categories.map((category, index) => (
-                <CategoryCard 
+                <div key={index} className="stagger-fade-in">
+                  <CategoryCard 
                   key={index} 
                   category={{
                     name: category.name,
@@ -159,7 +164,8 @@ const Index = () => {
                     image: category.image_url || "/api/placeholder/300/200",
                     productCount: category.product_count
                   }} 
-                />
+                  />
+                </div>
               ))
             )}
           </div>
@@ -176,7 +182,7 @@ const Index = () => {
           
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-6">
             {brands.map((brand, index) => (
-              <div key={index} className="group cursor-pointer">
+              <div key={index} className="group cursor-pointer stagger-fade-in">
                 <div className="bg-card border border-border rounded-xl p-6 text-center hover-lift">
                   <h3 className="font-semibold text-primary group-hover:text-electric transition-smooth">
                     {brand}

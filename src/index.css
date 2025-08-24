@@ -7,33 +7,37 @@
 
 @layer base {
   :root {
-    /* AutoParts Brand Colors */
-    --background: 0 0% 100%;
-    --foreground: 220 13% 4%;
+    /* AutoParts Brand Colors - Updated */
+    --background: 0 0% 100%; /* White */
+    --foreground: 0 0% 0%; /* Black */
     
     /* Surface Colors */
-    --card: 0 0% 100%;
-    --card-foreground: 220 13% 4%;
+    --card: 0 0% 100%; /* White */
+    --card-foreground: 0 0% 0%; /* Black */
     
     --popover: 0 0% 100%;
-    --popover-foreground: 220 13% 4%;
+    --popover-foreground: 0 0% 0%;
     
-    /* Brand Grays */
-    --primary: 220 13% 4%; /* #0B0B0C equivalent */
-    --primary-foreground: 0 0% 100%;
+    /* Brand Colors */
+    --primary: 0 0% 0%; /* Black #000000 */
+    --primary-foreground: 0 0% 100%; /* White */
     
-    --secondary: 220 9% 12%; /* #1F1F23 equivalent */
+    --secondary: 0 0% 20%; /* Dark Gray #333333 */
     --secondary-foreground: 0 0% 100%;
     
-    --muted: 220 7% 17%; /* #2B2B31 equivalent */
-    --muted-foreground: 220 5% 91%; /* #E5E7EB equivalent */
+    --muted: 0 0% 97%; /* Light Gray #F7F7F7 */
+    --muted-foreground: 0 0% 20%;
     
-    --accent: 220 5% 91%;
-    --accent-foreground: 220 13% 4%;
+    --accent: 0 0% 97%; /* Light Gray */
+    --accent-foreground: 0 0% 0%;
     
-    /* Electric Blue CTA */
-    --electric: 217 91% 60%; /* #2563EB */
+    /* Vibrant Blue CTA */
+    --electric: 211 100% 50%; /* #007BFF */
     --electric-foreground: 0 0% 100%;
+    
+    /* Alternative Neon Orange CTA */
+    --neon-orange: 14 100% 57%; /* #FF5722 */
+    --neon-orange-foreground: 0 0% 100%;
     
     /* Status Colors */
     --destructive: 0 84% 60%;
@@ -46,84 +50,79 @@
     --warning-foreground: 0 0% 100%;
     
     /* UI Elements */
-    --border: 220 5% 91%;
-    --input: 220 5% 91%;
-    --ring: 217 91% 60%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 211 100% 50%;
     
     /* Design System */
-    --radius: 1rem;
+    --radius: 0.75rem;
     
-    /* Shadows */
-    --shadow-soft: 0 2px 8px -2px hsl(220 13% 4% / 0.1);
-    --shadow-medium: 0 4px 16px -4px hsl(220 13% 4% / 0.15);
-    --shadow-strong: 0 8px 32px -8px hsl(220 13% 4% / 0.2);
+    /* Enhanced Shadows */
+    --shadow-soft: 0 2px 8px -2px hsl(0 0% 0% / 0.08);
+    --shadow-medium: 0 4px 16px -4px hsl(0 0% 0% / 0.12);
+    --shadow-strong: 0 8px 32px -8px hsl(0 0% 0% / 0.16);
+    --shadow-pop: 0 8px 25px -8px hsl(0 0% 0% / 0.2);
     
     /* Gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(220 13% 4%) 0%, hsl(220 9% 12%) 100%);
-    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(220 5% 98%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(0 0% 0%) 0%, hsl(0 0% 20%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(0 0% 97%) 100%);
     
-    /* Animations */
+    /* Enhanced Animations */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-bounce: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    --transition-spring: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
     --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
+    --sidebar-foreground: 0 0% 20%;
+    --sidebar-primary: 0 0% 0%;
     --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-accent: 0 0% 95%;
+    --sidebar-accent-foreground: 0 0% 0%;
+    --sidebar-border: 0 0% 90%;
+    --sidebar-ring: 211 100% 50%;
   }
 
   .dark {
     /* Dark mode colors */
-    --background: 220 13% 4%;
-    --foreground: 0 0% 95%;
+    --background: 0 0% 0%;
+    --foreground: 0 0% 97%;
     
-    --card: 220 9% 12%;
-    --card-foreground: 0 0% 95%;
+    --card: 0 0% 5%;
+    --card-foreground: 0 0% 97%;
     
-    --popover: 220 9% 12%;
-    --popover-foreground: 0 0% 95%;
+    --popover: 0 0% 5%;
+    --popover-foreground: 0 0% 97%;
     
-    --primary: 0 0% 95%;
-    --primary-foreground: 220 13% 4%;
+    --primary: 0 0% 97%;
+    --primary-foreground: 0 0% 0%;
     
-    --secondary: 220 7% 17%;
-    --secondary-foreground: 0 0% 95%;
+    --secondary: 0 0% 20%;
+    --secondary-foreground: 0 0% 97%;
     
-    --muted: 220 7% 17%;
-    --muted-foreground: 220 5% 65%;
+    --muted: 0 0% 10%;
+    --muted-foreground: 0 0% 65%;
     
-    --accent: 220 7% 17%;
-    --accent-foreground: 0 0% 95%;
+    --accent: 0 0% 10%;
+    --accent-foreground: 0 0% 97%;
     
-    --electric: 217 91% 60%;
+    --electric: 211 100% 50%;
     --electric-foreground: 0 0% 100%;
     
     --destructive: 0 62% 30%;
-    --destructive-foreground: 0 0% 95%;
+    --destructive-foreground: 0 0% 97%;
     
-    --border: 220 7% 17%;
-    --input: 220 7% 17%;
-    --ring: 217 91% 60%;
+    --border: 0 0% 15%;
+    --input: 0 0% 15%;
+    --ring: 211 100% 50%;
 
-    --sidebar-background: 220 13% 4%;
-    --sidebar-foreground: 0 0% 95%;
-    --sidebar-primary: 0 0% 95%;
-    --sidebar-primary-foreground: 220 13% 4%;
-    --sidebar-accent: 220 7% 17%;
-    --sidebar-accent-foreground: 0 0% 95%;
-    --sidebar-border: 220 7% 17%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-background: 0 0% 0%;
+    --sidebar-foreground: 0 0% 97%;
+    --sidebar-primary: 0 0% 97%;
+    --sidebar-primary-foreground: 0 0% 0%;
+    --sidebar-accent: 0 0% 10%;
+    --sidebar-accent-foreground: 0 0% 97%;
+    --sidebar-border: 0 0% 15%;
+    --sidebar-ring: 211 100% 50%;
   }
 }
 
@@ -161,6 +160,10 @@
     box-shadow: var(--shadow-strong);
   }
   
+  .shadow-pop {
+    box-shadow: var(--shadow-pop);
+  }
+  
   .transition-smooth {
     transition: var(--transition-smooth);
   }
@@ -169,26 +172,223 @@
     transition: var(--transition-bounce);
   }
   
-  /* Professional hover effects */
+  .transition-spring {
+    transition: var(--transition-spring);
+  }
+  
+  /* Enhanced hover effects with micro-animations */
   .hover-lift {
     @apply transition-smooth;
+    transform: translateY(0);
   }
   
   .hover-lift:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-medium);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-pop);
+  }
+  
+  .hover-zoom {
+    @apply transition-smooth overflow-hidden;
+  }
+  
+  .hover-zoom:hover img {
+    transform: scale(1.05);
+  }
+  
+  .hover-glow {
+    @apply transition-smooth;
+    box-shadow: 0 0 0 0 hsl(var(--electric) / 0);
+  }
+  
+  .hover-glow:hover {
+    box-shadow: 0 0 0 4px hsl(var(--electric) / 0.1);
+  }
+  
+  /* Cart shake animation */
+  .cart-shake {
+    animation: cart-shake 0.6s ease-in-out;
+  }
+  
+  /* Fly to cart animation */
+  .fly-to-cart {
+    animation: fly-to-cart 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  
+  /* Pulse animation for notifications */
+  .pulse-glow {
+    animation: pulse-glow 2s infinite;
   }
   
   /* Electric blue variants for CTAs */
   .btn-electric {
-    @apply bg-electric text-electric-foreground hover:bg-electric/90 transition-smooth;
+    @apply bg-electric text-electric-foreground hover:bg-electric/90 transition-spring shadow-medium;
+  }
+  
+  .btn-electric:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-pop);
+  }
+  
+  .btn-electric:active {
+    transform: translateY(0);
+  }
+  
+  /* Neon orange variant */
+  .btn-neon {
+    background: hsl(var(--neon-orange));
+    color: hsl(var(--neon-orange-foreground));
+    @apply transition-spring shadow-medium;
+  }
+  
+  .btn-neon:hover {
+    background: hsl(var(--neon-orange) / 0.9);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-pop);
   }
   
   .text-electric {
     color: hsl(var(--electric));
   }
   
+  .text-neon {
+    color: hsl(var(--neon-orange));
+  }
+  
   .border-electric {
     border-color: hsl(var(--electric));
+  }
+  
+  /* Page transition effects */
+  .page-enter {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  
+  .page-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+  }
+  
+  .page-exit {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .page-exit-active {
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.3s ease-in, transform 0.3s ease-in;
+  }
+  
+  /* Popup animations */
+  .popup-enter {
+    opacity: 0;
+    transform: scale(0.9) translateY(-10px);
+  }
+  
+  .popup-enter-active {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  
+  .popup-exit {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+  
+  .popup-exit-active {
+    opacity: 0;
+    transform: scale(0.9) translateY(-10px);
+    transition: all 0.15s ease-in;
+  }
+  
+  /* Search bar slide-up animation */
+  .search-slide-up {
+    animation: search-slide-up 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  
+  /* Hero banner fade-in */
+  .hero-fade-in {
+    animation: hero-fade-in 1s ease-out;
+  }
+  
+  /* Product grid stagger animation */
+  .stagger-fade-in {
+    opacity: 0;
+    animation: stagger-fade-in 0.6s ease-out forwards;
+  }
+  
+  .stagger-fade-in:nth-child(1) { animation-delay: 0.1s; }
+  .stagger-fade-in:nth-child(2) { animation-delay: 0.2s; }
+  .stagger-fade-in:nth-child(3) { animation-delay: 0.3s; }
+  .stagger-fade-in:nth-child(4) { animation-delay: 0.4s; }
+  .stagger-fade-in:nth-child(5) { animation-delay: 0.5s; }
+  .stagger-fade-in:nth-child(6) { animation-delay: 0.6s; }
+  .stagger-fade-in:nth-child(7) { animation-delay: 0.7s; }
+  .stagger-fade-in:nth-child(8) { animation-delay: 0.8s; }
+}
+
+@keyframes cart-shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-2px); }
+  20%, 40%, 60%, 80% { transform: translateX(2px); }
+}
+
+@keyframes fly-to-cart {
+  0% { 
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+  50% { 
+    transform: scale(0.8) translateY(-20px);
+    opacity: 0.8;
+  }
+  100% { 
+    transform: scale(0.3) translateY(-40px) translateX(100px);
+    opacity: 0;
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { 
+    box-shadow: 0 0 0 0 hsl(var(--electric) / 0.4);
+  }
+  50% { 
+    box-shadow: 0 0 0 8px hsl(var(--electric) / 0);
+  }
+}
+
+@keyframes search-slide-up {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hero-fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes stagger-fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

@@ -23,17 +23,17 @@ const ProductCard = ({ product }: ProductCardProps) => {
   const { name, brand, price, originalPrice, rating, reviewCount, image, inStock, fitment, partNumber } = product;
   
   return (
-    <Card className="group hover-lift cursor-pointer border border-border rounded-2xl overflow-hidden">
+    <Card className="group hover-lift hover-zoom cursor-pointer border border-border rounded-2xl overflow-hidden">
       <div className="relative aspect-square bg-accent/20 overflow-hidden">
         <img 
           src={image} 
           alt={name}
-          className="w-full h-full object-cover group-hover:scale-105 transition-smooth"
+          className="w-full h-full object-cover transition-smooth"
         />
         <Button 
           variant="ghost" 
           size="icon"
-          className="absolute top-3 right-3 bg-background/80 backdrop-blur-sm hover:bg-background"
+          className="absolute top-3 right-3 bg-background/80 backdrop-blur-sm hover:bg-background hover:text-electric transition-spring opacity-0 group-hover:opacity-100"
         >
           <Heart className="h-4 w-4" />
         </Button>
@@ -84,7 +84,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
           
           <Button 
             size="sm" 
-            className="btn-electric"
+            className="btn-electric opacity-0 group-hover:opacity-100 transition-spring"
             disabled={!inStock}
           >
             <ShoppingCart className="h-4 w-4 mr-1" />

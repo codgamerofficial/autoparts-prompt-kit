@@ -52,7 +52,7 @@ const Header = () => {
                 </Button>
                 <Button variant="ghost" size="icon" className="relative">
                   <ShoppingCart className="h-5 w-5" />
-                  <span className="absolute -top-1 -right-1 bg-electric text-electric-foreground text-xs rounded-full h-5 w-5 flex items-center justify-center">
+                  <span className="absolute -top-1 -right-1 bg-electric text-electric-foreground text-xs rounded-full h-5 w-5 flex items-center justify-center pulse-glow">
                     0
                   </span>
                 </Button>
@@ -76,7 +76,7 @@ const Header = () => {
                 </Button>
                 <Button variant="ghost" size="icon" className="relative">
                   <ShoppingCart className="h-5 w-5" />
-                  <span className="absolute -top-1 -right-1 bg-electric text-electric-foreground text-xs rounded-full h-5 w-5 flex items-center justify-center">
+                  <span className="absolute -top-1 -right-1 bg-electric text-electric-foreground text-xs rounded-full h-5 w-5 flex items-center justify-center pulse-glow">
                     0
                   </span>
                 </Button>

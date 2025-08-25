@@ -2,6 +2,8 @@ import { Star, Heart, ShoppingCart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
+import { useCart } from "@/hooks/useCart";
+import { useAuth } from "@/hooks/useAuth";
 
 interface ProductCardProps {
   product: {
@@ -21,6 +23,16 @@ interface ProductCardProps {
 
 const ProductCard = ({ product }: ProductCardProps) => {
   const { name, brand, price, originalPrice, rating, reviewCount, image, inStock, fitment, partNumber } = product;
+  const { addToCart, isAddingToCart } = useCart();
+  const { user } = useAuth();
+
+  const handleAddToCart = () => {
+    if (!user) {
+      // Could redirect to auth or show login modal
+      return;
+    }
+    addToCart({ productId: product.id });
+  };
   
   return (
     <Card className="group hover-lift hover-zoom cursor-pointer border border-border rounded-2xl overflow-hidden">
@@ -85,10 +97,11 @@ const ProductCard = ({ product }: ProductCardProps) => {
           <Button 
             size="sm" 
             className="btn-electric opacity-0 group-hover:opacity-100 transition-spring"
-            disabled={!inStock}
+            disabled={!inStock || isAddingToCart || !user}
+            onClick={handleAddToCart}
           >
             <ShoppingCart className="h-4 w-4 mr-1" />
-            Add
+            {isAddingToCart ? "Adding..." : "Add"}
           </Button>
         </div>
       </CardContent>

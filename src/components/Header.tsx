@@ -5,10 +5,13 @@ import { MainNavigationMenu } from "@/components/NavigationMenu";
 import { MobileMenu } from "@/components/MobileMenu";
 import { ModeToggle } from "@/components/ui/mode-toggle";
 import { useAuth } from "@/hooks/useAuth";
+import { useCart } from "@/hooks/useCart";
+import CartDrawer from "@/components/CartDrawer";
 import { Link } from "react-router-dom";
 
 const Header = () => {
   const { user, signOut } = useAuth();
+  const { cartCount } = useCart();
   
   return (
     <header className="bg-background border-b border-border shadow-soft sticky top-0 z-50">
@@ -50,12 +53,16 @@ const Header = () => {
                 <Button variant="ghost" size="icon" className="relative">
                   <Heart className="h-5 w-5" />
                 </Button>
-                <Button variant="ghost" size="icon" className="relative">
-                  <ShoppingCart className="h-5 w-5" />
-                  <span className="absolute -top-1 -right-1 bg-electric text-electric-foreground text-xs rounded-full h-5 w-5 flex items-center justify-center pulse-glow">
-                    0
-                  </span>
-                </Button>
+                <CartDrawer>
+                  <Button variant="ghost" size="icon" className="relative">
+                    <ShoppingCart className="h-5 w-5" />
+                    {cartCount > 0 && (
+                      <span className="absolute -top-1 -right-1 bg-electric text-electric-foreground text-xs rounded-full h-5 w-5 flex items-center justify-center pulse-glow">
+                        {cartCount}
+                      </span>
+                    )}
+                  </Button>
+                </CartDrawer>
                 <Button variant="ghost" size="icon">
                   <User className="h-5 w-5" />
                 </Button>
@@ -74,12 +81,16 @@ const Header = () => {
                 <Button variant="ghost" size="icon" className="relative">
                   <Heart className="h-5 w-5" />
                 </Button>
-                <Button variant="ghost" size="icon" className="relative">
-                  <ShoppingCart className="h-5 w-5" />
-                  <span className="absolute -top-1 -right-1 bg-electric text-electric-foreground text-xs rounded-full h-5 w-5 flex items-center justify-center pulse-glow">
-                    0
-                  </span>
-                </Button>
+                <CartDrawer>
+                  <Button variant="ghost" size="icon" className="relative">
+                    <ShoppingCart className="h-5 w-5" />
+                    {cartCount > 0 && (
+                      <span className="absolute -top-1 -right-1 bg-electric text-electric-foreground text-xs rounded-full h-5 w-5 flex items-center justify-center pulse-glow">
+                        {cartCount}
+                      </span>
+                    )}
+                  </Button>
+                </CartDrawer>
                 <Link to="/auth">
                   <Button variant="ghost" size="icon">
                     <User className="h-5 w-5" />
